@@ -9,6 +9,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Link } from "react-router-dom"
 import BlogPreviewDialog from "./BlogPreviewDialog"
 import { useState } from "react"
+import { AdDialog } from "../ui/AdDialog"
+import { toast } from "sonner"
 
 interface BlogSection {
   id: string
@@ -105,9 +107,12 @@ export default function BlogContentUpload() {
       `Settings: ${JSON.stringify(settings, null, 2)}`
     )
   }
-
+   const updateBlog = () => {
+    toast.success("Blog Published Successfully");
+  };
   return (
     <main className="min-h-screen px-1  mx-auto font-sans text-gray-900">
+      <AdDialog/>
       <div className="flex justify-end mb-2">
         <Link to="/website/blog-page"><button className="text-[#FF4D4D] text-sm font-medium  cursor-pointer underline">View All Blogs</button></Link>
       </div>
@@ -352,7 +357,7 @@ export default function BlogContentUpload() {
   Preview Blog
 </Button>
 
-          <Button className="hover:bg-accent/90 text-white font-medium px-4  h-11 bg-[#0360D9]">Publish Blog</Button>
+          <Button className="text-white font-medium px-4 h-11 bg-[#0360D9]" onClick={updateBlog}>Publish Blog</Button>
         </div>
       </div>
       <BlogPreviewDialog

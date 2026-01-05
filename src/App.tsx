@@ -6,7 +6,8 @@ import Website from './pages/website';
 import ViewTable from './components/website/HeroSection/ViewTable';
 import BlogPageTable from './components/Blog/BlogPageTable';
 import CaseStudyTable from './components/caseStudy/caseStudyTable';
-
+import { Toaster } from './components/ui/sonner';
+import Dashboard from './pages/dashBoard';
 // Dummy page component for now
 const Page = ({ title }: { title: string }) => <div className="px-4 py-6 text-black "><h1 className="text-2xl font-bold text-black">{title}</h1></div>;
 
@@ -19,6 +20,7 @@ function AppLayout() {
         <BreadcrumbNavbar />
         <div className="flex-1 overflow-y-auto bg-background">
           <Outlet />
+          <Toaster />
         </div>
       </div>
     </div>
@@ -31,7 +33,7 @@ function App() {
     <Router>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/dashboard" element={<Page title="Dashboard" />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/website" element={<Website />} >
             <Route path="hero-section" element={<ViewTable />} />
             <Route path="blog-page" element={<BlogPageTable />} />

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { AddDialog } from "../ui/CaseStudyAddDialog";
 import {
   Select,
   SelectContent,
@@ -16,6 +17,7 @@ import { Switch } from "@/components/ui/switch";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CaseStudyPreviewDialog from "./CaseStudyPreviewDialog";
+import { toast } from "sonner";
 interface CaseSection {
   id: string;
   orientation: boolean;
@@ -129,9 +131,14 @@ export default function CaseStudyContentUpdate() {
     setSections(sections.map((s) => (s.id === id ? { ...s, ...updates } : s)));
   };
 
+  const bhogPublish = () => {
+     toast.success("Publishing Case Study...");
+  };
+
   return (
     <>
       <div className="w-full flex justify-end mb-2">
+        <AddDialog />
         <Link to="/website/case-studies">
           <button className="text-[#ef4444] text-sm font-medium hover:underline underline cursor-pointer">
             View All Case Studies
@@ -467,8 +474,8 @@ export default function CaseStudyContentUpdate() {
               Preview Case Study
             </Button>
 
-            <Button className="h-11 px-4 bg-[#0360D9] hover:bg-[#0360D9]/90 text-white font-medium">
-              Publish Blog
+            <Button className="h-11 px-4 bg-[#0360D9]  text-white font-medium" onClick={bhogPublish}>
+              Publish CaseStudy
             </Button>
           </div>
         </div>

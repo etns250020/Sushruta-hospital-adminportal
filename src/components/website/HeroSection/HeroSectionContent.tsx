@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import HeroSectionPreviewDialog from "./HeroSectionPreviewDialog";
 const DEFAULT_TITLE = "Rebuilding Lives Restoring Confidence";
+import { toast } from "sonner";
 const INITIAL_HERO_IMAGES: string[] = [];
 const INITIAL_PRIMARY_IMAGE = null;
 
@@ -89,6 +90,9 @@ function HeroSectionContent() {
     // Reset input to allow re-uploading same file
     e.target.value = "";
   };
+  const handleUpdate=()=>{
+    toast.success("Hero Section Updated Successfully");
+  }
   return (
     <div className="space-y-3 h-full">
       <div className="flex items-center justify-between">
@@ -294,7 +298,7 @@ function HeroSectionContent() {
   Preview Page
 </Button>
 
-        <Button className="px-8 bg-[#0360D9] hover:bg-[#0052b1] text-white">
+        <Button className="px-8 bg-[#0360D9] hover:bg-[#0052b1] text-white" onClick={handleUpdate}>
           Update
         </Button>
       </div>

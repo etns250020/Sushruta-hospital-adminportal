@@ -75,7 +75,7 @@ html, body {
 }
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -86,7 +86,7 @@ html, body {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
 
 /* Hide scrollbar but keep scroll working */
 .scrollbar-hide {
